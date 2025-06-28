@@ -1034,3 +1034,29 @@ footer .bottom-details .bottom_text {
   pointer-events: none;
   margin-left: 10px;
 }
+
+footer .content .top .logo-details img.logofooter {
+  /* Caminho relativo correto para o logo no footer */
+  content: url(../assets/loiane-training-logo-branca.png);
+}
+
+.content .top .media-icons a:nth-child(1) img {
+  /* Twitter */
+  content: url(../assetsRedesocial/twitter-logo-black-outline-20846.png);
+}
+.content .top .media-icons a:nth-child(2) img {
+  /* Github */
+  content: url(../assetsRedesocial/github-logo-6532.png);
+}
+.content .top .media-icons a:nth-child(3) img {
+  /* Youtube */
+  content: url(../assetsRedesocial/youtube-123.png);
+}
+.content .top .media-icons a:nth-child(4) img {
+  /* Facebook */
+  content: url(../assetsRedesocial/facebook-logo-108.png);
+}
+.content .top .media-icons a:nth-child(5) img {
+  /* Linkedin */
+  content: url(../assetsRedesocial/linkedin-112.png);
+}
