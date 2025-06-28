@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login & Signup Form | CodingNepal</title>
+    <link rel="stylesheet" href="login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <!-- NAVBAR INÍCIO -->
+    <header>
+      <nav>
+        <a href="index.html"><img class="logo" src="assets/loiane-training-logo-branca.png" alt="loiane training"></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cursos/cursos copy.html">Cursos</a></li>
+            <li><a href="html/sobre.html">Sobre</a></li>
+            <li>
+              <a class="entrar" id="user-btn" href="html/login.html">
+                <span id="user-btn-text">ENTRAR</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+    </header>
+    <!-- NAVBAR FIM -->
+
+    <div class="wrapper">
+      <div class="title-text">
+        <div class="title login">Login</div>
+        <div class="title signup">Cadastro</div>
+      </div>
+      <div class="form-container">
+        <div class="slide-controls">
+          <input type="radio" name="slide" id="login" checked>
+          <input type="radio" name="slide" id="signup">
+          <label for="login" class="slide login">Login</label>
+          <label for="signup" class="slide signup">Cadastro</label>
+          <div class="slider-tab"></div>
+        </div>
+        
+        <div class="form-inner">
+
+          <!-- FORMULÁRIO DE LOGIN COM BOTÕES SOCIAIS E CAMPOS PERSONALIZADOS -->
+          <form action="#" class="login">
+            <h3>Faça login com:</h3>
+
+            <div class="login_option">
+              <!-- Botão Google -->
+              <div class="option">
+                <a href="#">
+                  <img src="assets/google.png" alt="Google" />
+                  <span>Google</span>
+                </a>
+              </div>
+
+              <!-- Botão Github -->
+              <div class="option">
+                <a href="#">
+                  <img src="../assets/25231.png" alt="Github" />
+                  <span>Github</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Separador -->
+            <p class="separator"><span>ou</span></p>
+
+            <!-- Campo de email -->
+            <div class="input_box">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="Digite seu e-mail" required />
+            </div>
+
+            <!-- Campo de senha -->
+            <div class="input_box">
+              <div class="password_title">
+                <label for="password">Senha</label>
+                <a href="#">Esqueceu a senha?</a>
+              </div>
+              <input type="password" id="password" placeholder="Digite sua senha" required />
+            </div>
+
+            <!-- Botão entrar -->
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Entrar">
+            </div>
+
+            <p class="signup-link">Não possui uma conta? <a href="">Cadastre-se</a></p>
+          </form>
+
+          <!-- FORMULÁRIO DE CADASTRO (MANTIDO COMO ESTAVA) -->
+          <form action="#" class="signup">
+            <div class="field">
+              <label for="signup-username">Nome de Usuário</label>
+              <input type="text" id="signup-username" placeholder="Nome de Usuário" required>
+            </div>
+            <div class="field">
+              <label for="signup-email">Email</label>
+              <input type="text" id="signup-email" placeholder="Email" required>
+            </div>
+            <div class="field">
+              <label for="signup-password">Senha</label>
+              <input type="password" id="signup-password" placeholder="Senha" required>
+            </div>
+            <!-- Campo para data de nascimento -->
+            <div class="field">
+              <label for="signup-birthdate">Data de Nascimento</label>
+              <input type="date" id="signup-birthdate" placeholder="Data de Nascimento" required>
+            </div>
+            
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Cadastre-se">
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Script do menu responsivo -->
+    <script>
+      var navLinks = document.getElementById("navLinks");
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
+    </script>
+    <!-- Script para trocar o texto do botão de login se usuário estiver logado -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var userBtn = document.getElementById('user-btn');
+        var userBtnText = document.getElementById('user-btn-text');
+        var userName = localStorage.getItem('userName');
+        if (userName) {
+          userBtnText.textContent = userName;
+          userBtn.href = "#";
+          userBtn.classList.add('logado');
+          userBtn.style.pointerEvents = "none";
+        } else {
+          userBtnText.textContent = "ENTRAR";
+          userBtn.href = "html/login.html";
+          userBtn.classList.remove('logado');
+          userBtn.style.pointerEvents = "";
+        }
+      });
+    </script>
+    <script>
+      const loginText = document.querySelector(".title-text .login");
+      const loginForm = document.querySelector("form.login");
+      const loginBtn = document.querySelector("label.login");
+      const signupBtn = document.querySelector("label.signup");
+      const signupLink = document.querySelector("form .signup-link a");
+
+      signupBtn.onclick = () => {
+        loginForm.style.marginLeft = "-50%";
+        loginText.style.marginLeft = "-50%";
+      };
+
+      loginBtn.onclick = () => {
+        loginForm.style.marginLeft = "0%";
+        loginText.style.marginLeft = "0%";
+      };
+
+      signupLink.onclick = () => {
+        signupBtn.click();
+        return false;
+      };
+    </script>
+
+  </body>
+</html>
